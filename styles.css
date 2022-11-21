@@ -1,0 +1,163 @@
+:root {
+  /* colors */
+  --primary-first-color: hsl(158, 36%, 37%); /* Dark Cyan */
+  --primary-first-color-hover: hsl(156, 42%, 18%);
+  --primary-second-color: hsl(30, 38%, 92%); /* Cream */
+
+  --secondary-first-color: hsl(212, 21%, 14%);
+  --secondary-second-color: hsl(228, 12%, 48%);
+  
+  --white: hsl(0, 0%, 100%);
+  --black: rgb(0,0,0);
+
+  --default-border-radius: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: var(--black);
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--primary-second-color);
+}
+
+.product {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product .product-card {
+  width: 600px;
+  height: 450px;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  position: absolute;
+}
+
+.product .product-card .product-card-image {
+  width:100%;
+  position: relative;
+}
+
+.product .product-card .product-card-image.product-card-image__desktop {
+  display: block;
+  border-top-left-radius: var(--default-border-radius);
+  border-bottom-left-radius: var(--default-border-radius);
+}
+
+.product .product-card .product-card-image.product-card-image__mobile {
+  display: none;
+}
+
+.product .product-card .product-card-content {
+  background-color: var(--white);
+  padding: 30px;
+  position: relative;
+  border-top-right-radius: var(--default-border-radius);
+  border-bottom-right-radius: var(--default-border-radius);
+}
+
+.product .product-card .product-card-content .product-card-content-category {
+  color: var(--secondary-first-color);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.product .product-card .product-card-content .product-card-content-price,
+.product .product-card .product-card-content .product-card-content-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+}
+
+.product .product-card .product-card-content .product-card-content-title {
+  font-size: 32px;
+  margin: 20px 0;
+  line-height: 30px;
+}
+
+.product .product-card .product-card-content .product-card-content-description {
+  color: var(--secondary-first-color);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.product .product-card .product-card-content .product-card-content-price {
+  color: var(--primary-first-color);
+  margin: 20px 0;
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.product .product-card .product-card-content .product-card-content-price-original {
+  color: var(--secondary-first-color);
+  text-decoration: line-through;
+  font-weight: 500;
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.product .product-card .product-card-content .product-card-content-cart-button {
+  cursor: pointer;
+  padding: 15px 10px;
+  color: var(--white);
+  background-color: var(--primary-first-color);
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.product .product-card .product-card-content .product-card-content-cart-button:hover {
+  background-color: var(--primary-first-color-hover);
+}
+
+.product .product-card .product-card-content .product-card-content-cart-button .product-card-content-cart-button-text {
+  color: var(--white);
+}
+
+@media (max-width: 375px) {
+  .product .product-card {
+    width: 350px;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .product .product-card .product-card-image.product-card-image__desktop {
+    display: none;
+  }
+
+  .product .product-card .product-card-image.product-card-image__mobile {
+    display: block;
+    border-top-left-radius: var(--default-border-radius);
+    border-top-right-radius: var(--default-border-radius);
+  }
+
+  .product .product-card .product-card-content {
+    border-radius: 0;
+    border-bottom-left-radius: var(--default-border-radius);
+    border-bottom-right-radius: var(--default-border-radius);
+  }
+}
