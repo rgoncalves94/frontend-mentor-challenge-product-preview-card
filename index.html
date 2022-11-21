@@ -30,8 +30,10 @@
 <body>
   <main class="product">
     <section class="product-card">
-      <img class="product-card-image product-card-image__desktop" src="./images/image-product-desktop.jpg">
-      <img class="product-card-image product-card-image__mobile" src="./images/image-product-mobile.jpg">
+      <img aria-hidden="true" class="product-card-image product-card-image__desktop"
+        src="./images/image-product-desktop.jpg" alt="Gabrielle Essence Eau De Parfum image, for only USD $149.99">
+      <img aria-hidden="true" class="product-card-image product-card-image__mobile"
+        src="./images/image-product-mobile.jpg" alt="Gabrielle Essence Eau De Parfum image, for only USD $149.99">
       <div class="product-card-content">
         <h2 class="product-card-content-category">
           PERFUME
@@ -56,6 +58,22 @@
       </div>
     </section>
   </main>
+  <script>
+    const defineAriaHidden = () => {
+      const isDesktop = window.innerWidth > 375;
+      console.log(isDesktop, window.innerWidth)
+      document
+        .querySelector(".product-card-image__desktop")
+        .setAttribute("aria-hidden", isDesktop ? "false" : "true")
+
+      document
+        .querySelector(".product-card-image__mobile")
+        .setAttribute("aria-hidden", isDesktop ? "true" : "false")
+    }
+
+    window.addEventListener("resize", defineAriaHidden);
+    defineAriaHidden()
+  </script>
 </body>
 
 </html>
